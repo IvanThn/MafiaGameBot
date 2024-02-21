@@ -57,10 +57,9 @@ def callback_message(callback):
         in_game_id_list = [id[1] for id in users_in_game]
         if callback.message.chat.id not in in_game_id_list:
             cursor.execute(UPDATE_IN_GAME_ID, (callback.message.chat.id, callback.from_user.id))
-            connect.commit()
         else:
             cursor.execute(UPDATE_IN_GAME_ID, (None, callback.from_user.id))
-            connect.commit()
+        connect.commit()
 
         users_in_game = cursor.execute(SELECT_USER_IN_GAME).fetchall()
         users_in_game_list = [name[0] for name in users_in_game]
