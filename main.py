@@ -7,13 +7,13 @@ import settings
 
 bot = TeleBot(settings.TOKEN)
 
-INSERT_USER_DATA = '''
-    INSERT INTO users VALUES(?, ?, ?, ?)
-'''
-
-SELECT_USER_IN_GAME = '''
-    SELECT user_name, cur_game_id FROM users WHERE cur_game_id IS NOT NULL
-'''
+# INSERT_USER_DATA = '''
+#     INSERT INTO users VALUES(?, ?, ?, ?)
+# '''
+#
+# SELECT_USER_IN_GAME = '''
+#     SELECT user_name, cur_game_id FROM users WHERE cur_game_id IS NOT NULL
+# '''
 
 SELECT_USER_ID = '''
     SELECT user_id FROM users
@@ -24,9 +24,6 @@ UPDATE_IN_GAME_ID = '''
 '''
 
 
-@bot.message_handler(commands=['start'])
-def greet(message):
-    bot.send_message(message.chat.id, "Hi! I'm MafiaGame bot!")
 def start(message):
     if message.chat.type == 'private':
         bot.send_message(message.chat.id, "Hi! I'm MafiaGame bot!")
