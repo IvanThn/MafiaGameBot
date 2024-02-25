@@ -1,15 +1,7 @@
-from sqlalchemy import select, update
+from sqlalchemy import select
 
 from sqlalchemy.orm import Session
 from ORM import engine, Users
-
-
-# session = Session(engine)
-#
-# stmt = select(Users).where(Users.user_id.in_([123]))
-#
-# for user in session.scalars(stmt):
-#     print(user)
 
 
 def insert_user(user_id: int, user_name: str):
